@@ -18,6 +18,8 @@ This notebook contains a handful of helper functions and methods.
 
 # Future Work
 
-Currently, this project only works using the `rntxt` files that come natively with the music21 library: 46 songs by Monteverdi and 20 by Bach. Ideally, we would have many more datasets for each composer, and more composers to choose from.
+* Currently, this project only works using the `rntxt` files that come natively with the music21 library: 46 songs by Monteverdi and 20 by Bach. Ideally, we would have many more datasets for each composer, and more composers to choose from.
 
-Additionally, we would want to encode duration as well into the datasets and somehow encode the
+* We would want to encode duration as well into the datasets, incorporating the relative length of the chord in some way to contribute to the comparison.
+
+* Highlight locations in the progression which are not conventional for the given composer to use.

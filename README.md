@@ -4,31 +4,43 @@ Tommy Heng and Miguel Vega's final project for MIT's Computational Music Theory 
 
 The idea of this project is to allow the user to be able to submit a chord progression. The algorithm will then in some way analyze how closely this chord progression resembles the music patterns of a particular composer.
 
+## The Final Results
+
+To run the final results for yourself, run the `similarity.py` file with python and follow the instructions. It is recommended to understand [Method 3](#method-3) before using it. The `music21` library is **not** required to run this file.
+
+    $ python similarity.py
+
 # Table of Contents
 
-* Format Roman Numeral Datasets
-* Conducting Frequency Analysis
+* [Format Roman Numeral Datasets](#formatting)
+* [Conducting Frequency Analysis](#frequency-analysis)
   * [Method 1 - Whole Progression Frequency](#method-1)
   * [Method 2 - Probability Given All Preceding Chords](#method-2)
   * [Method 3 - Probability Given Some Preceding Chords](#method-3)
 
+<a name="formatting"></a>
 # Format Roman Numeral Datasets
 
-The first Jupyter Notebook of interest is `List Generator.ipynb`. In this notebook, the goal is to format songs from several known composers into a text file which can be easily parsed and analyzed by the next python notebook.
+The first Jupyter Notebook of interest is `List Generator.ipynb`.
 
-In the end, the format that we chose to encode the songs into is to separate each song with new line characters `\n`. Within each song, the data for each chord is separated by commas.
+The first task at hand is to format the .rntxt files that come natively with the music21 library into a format that could be read without requiring music21 to lower the barrier to using our application.
 
+In `List Generator.ipynb`, the format that we chose to encode the songs into is to separate each song with new line characters `\n`. Within each song, the data for each chord is separated by commas. Because of the limited size of our datasets, we chose to encode two different versions of each composer's repertoire, one which encoded inversions and one which ignored inversions when encoding them. When conducting the frequency analysis, the user can specify whether they which to use it or not.
+
+<a name="frequency-analysis"></a>
 # Conducting Frequency Analysis
 
 The second Jupyter Notebook of interest is `Chord Progression Frequency Analysis.ipynb`, where we actually conduct the frequency analysis.
 
-This notebook contains a handful of helper functions and methods.
+This notebook contains a handful of helper functions and the various methods.
 
 ## Method 1 - Whole Progression Frequency
 
 The first method we implemented would look at the entire chord progression the user would provide and count the number of occurrences of the full progression occurs in the specified composer's repertoire.
 
-To interpret this as a preference, we count the total number of `n`-long chords in the composer's repertoire, where `n` is the number of chords in the user's chord progression. Then, we count the number of times that the user's provided chord progression occurs in the composer's repertoire. Finally, we divide the latter by the former to get a fraction we interpret as the preference of the user's full chord progression to others of the same length.
+To interpret this as a preference, we count the total number of `n`-long chords in the composer's repertoire, where `n` is the number of chords in the user's chord progression. Then, we count the number of times that the user's provided chord progression occurs in the composer's repertoire. Finally, we divide the latter by the former to get a fraction we interpret as the preference of the user's full chord progression to others of the same length. The image below illustrates this calculation.
+
+![The Calculations](images/method-1.svg)
 
 ### Problems
 

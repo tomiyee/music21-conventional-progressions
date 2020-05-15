@@ -34,7 +34,7 @@ The second Jupyter Notebook of interest is `Chord Progression Frequency Analysis
 
 This notebook contains a handful of helper functions and the various methods.
 
-## Method 1 - Whole Progression Frequency
+## Method 1 - Whole Progression Frequency <a name="method-1"></a>
 
 The first method we implemented would look at the entire chord progression the user would provide and count the number of occurrences of the full progression occurs in the specified composer's repertoire.
 
